@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desi Pride &mdash; Elevating Indian Craftsmanship</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --clr-bg: #0e0e0e;
+      --clr-primary: #b58a00;
+      --clr-secondary: #ffffff;
+      --clr-accent: #8b0000;
+      --font-head: 'Playfair Display', serif;
+      --font-body: 'Poppins', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: var(--clr-bg);
+      color: var(--clr-secondary);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+    a { color: var(--clr-primary); text-decoration: none; }
+    header {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('hero.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    header .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 1rem;
+    }
+    h1 {
+      font-family: var(--font-head);
+      font-size: 3rem;
+      color: var(--clr-primary);
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      background: var(--clr-primary);
+      color: var(--clr-bg);
+      padding: 0.75rem 1.75rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    .btn:hover { opacity: 0.9; cursor: pointer; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      z-index: 100;
+      backdrop-filter: blur(5px);
+    }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav li a { font-weight: 500; }
+
+    section {
+      padding: 4rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    section h2 {
+      font-family: var(--font-head);
+      font-size: 2.25rem;
+      margin-bottom: 1.25rem;
+      color: var(--clr-primary);
+      text-align: center;
+    }
+    .story p {
+      max-width: 800px;
+      margin: 0.75rem auto;
+      text-align: center;
+    }
+
+    /* Brand cards */
+    .brands {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+    .card img { width: 100%; height: 300px; object-fit: cover; }
+    .card-content {
+      padding: 1.25rem;
+    }
+    .card-content h3 {
+      font-family: var(--font-head);
+      color: var(--clr-secondary);
+      margin-bottom: 0.5rem;
+    }
+    .card-content p { font-size: 0.9rem; color: #cccccc; }
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      nav ul { gap: 1rem; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#brands">Our Brands</a></li>
+      <li><a href="#journal">Journal</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header>
+    <div class="hero-content">
+      <h1>Desi Pride</h1>
+      <p class="subtitle">Elevating Indian Craftsmanship</p>
+      <a href="#brands" class="btn">Explore Our Spirits</a>
+    </div>
+  </header>
+
+  <!-- Story -->
+  <section id="story" class="story">
+    <h2>Our Story</h2>
+    <p>Desi Pride is a premium Indian lifestyle and spirits house redefining luxury with regional flair. We celebrate the bold, diverse, and authentic tastes of India, bottling stories that echo centuries of craft.</p>
+    <p>Every batch is rooted in local ingredients, iconic aesthetics, and meticulous craftsmanship, making Desi Pride more than a label&mdash;it's a movement to reclaim the richness of Indian indulgence.</p>
+  </section>
+
+  <!-- Brands -->
+  <section id="brands">
+    <h2>Our Brands</h2>
+    <div class="brands">
+      <div class="card">
+        <img src="daru.jpg" alt="Daru bottle">
+        <div class="card-content">
+          <h3>Daru</h3>
+          <p>A bold, modern Indian liquor distilled to perfection. Smooth yet fiery, Daru brings copper‑toned elegance to every sip.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="afza.jpg" alt="Daru Afza bottle">
+        <div class="card-content">
+          <h3>Daru Afza</h3>
+          <p>A rose‑infused spiced liqueur inspired by Mughal nostalgia. Floral, festive, and brimming with desi romance.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="motta.jpg" alt="Motta Sutta product">
+        <div class="card-content">
+          <h3>Motta Sutta</h3>
+          <p>Hand‑rolled cigars and earthy blends crafted for the unapologetic soul. Rustic charm meets refined smoke.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journal -->
+  <section id="journal">
+    <h2>Journal</h2>
+    <div class="story">
+      <p><strong>Coming soon:</strong> A behind‑the‑scenes look at how we source indigenous botanicals, partner with artisan cooperages, and revive age‑old Indian distilling methods for the modern palate.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="story">
+    <h2>Contact Us</h2>
+    <p>Questions, collaborations, or trade inquiries? Reach us at <a href="mailto:contact@desipride.in">contact@desipride.in</a></p>
+    <p>Follow our journey on <a href="https://instagram.com/desipride" target="_blank">Instagram</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Desi Pride. Crafted in India &mdash; with pride.
+  </footer>
+
+</body>
+</html>
