@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LokViral | Political Video Strategy for India</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- CSS --- */
+        :root {
+            --primary-blue: #003366; /* Deep Blue */
+            --accent-red: #D72323;   /* Strong Red */
+            --dark-gray: #333333;
+            --medium-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-red);
+            margin: 10px auto 0;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+        
+        section:nth-of-type(even) {
+            background-color: var(--light-gray);
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: var(--white);
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-red);
+        }
+
+        /* Intro Section */
+        #intro {
+            padding-top: 140px; /* Offset for fixed header */
+            text-align: center;
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            color: var(--white);
+        }
+        
+        #intro h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        #intro .tagline {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+        }
+        
+        #intro .pitch {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-red);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #b81d1d;
+            transform: translateY(-2px);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card .icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--accent-red);
+            margin-bottom: 10px;
+        }
+
+        /* Why YouTube Section */
+        .why-youtube-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .why-youtube-text {
+            flex: 1;
+        }
+
+        .why-youtube-text ul {
+            list-style: none;
+        }
+        
+        .why-youtube-text li {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .why-youtube-text i {
+            color: var(--accent-red);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .why-youtube-image {
+            flex: 1;
+        }
+        
+        .why-youtube-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Case Studies Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-left: 5px solid var(--primary-blue);
+            padding: 25px;
+            border-radius: 5px;
+        }
+        
+        .testimonial-card blockquote {
+            font-style: italic;
+            color: var(--medium-gray);
+            margin-bottom: 15px;
+            border: none;
+            padding: 0;
+        }
+
+        .testimonial-card cite {
+            font-weight: 600;
+            font-style: normal;
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-card img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        /* Contact Section */
+        #contact form {
+            max-width: 700px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+        }
+        
+        #contact .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #contact input, #contact textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        
+        #contact input:focus, #contact textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 5px rgba(0, 51, 102, 0.2);
+        }
+        
+        #contact textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        #contact button {
+            background-color: var(--accent-red);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        #contact button:hover {
+            background-color: #b81d1d;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .footer-content .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .footer-content .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-content .contact-info a:hover {
+            opacity: 0.8;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: transform 0.3s, color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-red);
+            transform: scale(1.2);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            h2 { font-size: 2rem; }
+            #intro h1 { font-size: 2.2rem; }
+            #intro .tagline { font-size: 1.2rem; }
+            nav ul { display: none; } /* Hide nav links for mobile, can be enhanced with JS for a hamburger menu */
+            
+            .why-youtube-content {
+                flex-direction: column;
+            }
+
+            .why-youtube-image {
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <nav class="container">
+            <a href="#" class="logo">Lok<span>Viral</span></a>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-youtube">Why YouTube</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro">
+            <div class="container">
+                <h1>Turn Followers into Voters</h1>
+                <p class="tagline">Political Video Strategy for India</p>
+                <p class="pitch">
+                    LokViral helps Indian politicians build a high-impact, long-term presence on YouTube. We transform the content you already create for platforms like Facebook and Instagram into searchable, evergreen political communication that builds legitimacy, engages constituents, and wins elections in the digital age.
+                </p>
+                <a href="#services" class="cta-button">Explore Our Services</a>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-sync-alt"></i></div>
+                        <h3>Social Media Migration</h3>
+                        <p>We automatically import and reformat videos from your Facebook and Instagram, uploading them to YouTube with optimal metadata.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-calendar-day"></i></div>
+                        <h3>Daily Uploads</h3>
+                        <p>New content is auto-detected and posted to YouTube with SEO-friendly titles, descriptions, and strategic hashtags.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-cut"></i></div>
+                        <h3>YouTube Shorts Editing</h3>
+                        <p>Our editors create compelling daily Shorts from your long-form content, rally footage, and viral clips to maximize engagement.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>YouTube SEO Optimization</h3>
+                        <p>We craft keyword-rich titles, playlists, and thumbnails to dominate search results and increase organic discovery.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-comments"></i></div>
+                        <h3>Comment Moderation</h3>
+                        <p>Our team engages with citizens, pins key comments, and filters spam to maintain a positive and strategic online reputation.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h3>Analytics Dashboard</h3>
+                        <p>Access custom reports on video views, audience retention, and subscriber growth to track your impact.</p>
+                    </div>
+                     <div class="service-card">
+                        <div class="icon"><i class="fas fa-bullseye"></i></div>
+                        <h3>Campaign Strategy</h3>
+                        <p>We align your video content with election calendars, rallies, and policy launches for maximum political impact.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon"><i class="fas fa-share-alt"></i></div>
+                        <h3>Cross-Promotion System</h3>
+                        <p>Every video is redistributed to Facebook, WhatsApp groups, and Twitter to ensure multi-platform reach.</p>
+                    </div>
+                     <div class="service-card">
+                        <div class="icon"><i class="fas fa-binoculars"></i></div>
+                        <h3>Opposition Tracking</h3>
+                        <p>We monitor rival candidates' channels and provide reports on their messaging, growth, and strategy.</p>
+                    </div>
+                     <div class="service-card">
+                        <div class="icon"><i class="fas fa-language"></i></div>
+                        <h3>AI Subtitling & Translation</h3>
+                        <p>Reach wider audiences with auto-generated subtitles in Hindi, English, Gujarati, and other regional languages.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-youtube">
+            <div class="container">
+                <h2>Why YouTube Matters for Indian Politicians</h2>
+                <div class="why-youtube-content">
+                    <div class="why-youtube-text">
+                        <ul>
+                            <li>
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h3>Massive Reach</h3>
+                                    <p>Connect with a fraction of the 500 million+ Indian YouTube users, a voter base larger than any other platform.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-search"></i>
+                                <div>
+                                    <h3>Lasting & Searchable Content</h3>
+                                    <p>Unlike transient social media posts, YouTube videos are searchable assets that build political legitimacy for years.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-mobile-alt"></i>
+                                <div>
+                                    <h3>Engage the Youth</h3>
+                                    <p>India's growing youth voter base consumes news and forms opinions through video, not pamphlets or print ads.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="why-youtube-image">
+                        <img src="https://images.unsplash.com/photo-1611162617213-6d22e4ca7c86?q=80&w=1974&auto=format&fit=crop" alt="Person watching YouTube on a phone">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-studies">
+            <div class="container">
+                <h2>Success Stories</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <blockquote>"LokViral transformed our digital outreach. Their YouTube strategy amplified our message and connected us with thousands of new, younger voters in our constituency."</blockquote>
+                        <cite>
+                            <img src="https://images.unsplash.com/photo-1615712952130-745c5f42c162?q=80&w=200&auto=format&fit=crop" alt="Jignesh Mevani">
+                            <strong>Jignesh Mevani</strong>, MLA
+                        </cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <blockquote>"The daily Shorts and opposition tracking reports were game-changers. We were always one step ahead, with our key moments reaching voters instantly."</blockquote>
+                        <cite>
+                            <img src="https://images.unsplash.com/photo-1599956683888-c7a5dc4c8511?q=80&w=200&auto=format&fit=crop" alt="Local Leader">
+                            <strong>Priya Sharma</strong>, State Assembly Candidate
+                        </cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <blockquote>"Their seamless migration of our old Facebook videos created an instant, searchable archive of our work. It's an invaluable asset for building long-term trust."</blockquote>
+                        <cite>
+                            <img src="https://images.unsplash.com/photo-1600378392994-27c16a858174?q=80&w=200&auto=format&fit=crop" alt="Ian Brossat">
+                            <strong>Ian Brossat</strong>, City Councillor
+                        </cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="sr-only">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="sr-only">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="sr-only">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your campaign..." required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="contact-info">
+                <a href="mailto:contact@lokviral.in"><i class="fas fa-envelope"></i> contact@lokviral.in</a>
+                <a href="tel:+910000000000"><i class="fas fa-phone"></i> +91 000-000-0000</a>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 LokViral. All Rights Reserved. Empowering Political Communication.</p>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.getElementById('header');
+        window.onscroll = function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+    </script>
+</body>
+</html>
